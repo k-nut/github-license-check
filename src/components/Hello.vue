@@ -13,8 +13,8 @@
     </form>
     <div v-if="repos.length">
       <div class="statistics">
-        You have {{ repos.length }} repositories on github. <br>
-        Out of those {{ licensedCount }} have a license. That is {{ licensedPercentage }} %.
+        You have <b>{{ repos.length }}</b> repositories on GitHub. <br>
+        Out of those <b>{{ licensedCount }}</b> have a license. That is <b>{{ licensedPercentage }}</b>%.
       </div>
       <table>
         <thead>
@@ -131,6 +131,10 @@ h1, h2
 th
   cursor: pointer
 
+.statistics
+  margin: 1rem 0
+  text-align: left
+
 table
   width: 100%
   margin: 0 auto;
@@ -152,4 +156,7 @@ table, tr, td
 
 button, input
   font-size: 1.6em
+
+.disclaimer
+  margin-top: 6rem
 </style>
