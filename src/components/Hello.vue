@@ -122,6 +122,11 @@ export default {
     width: 700px
     margin: 0 auto
 
+@media (max-width: 700px)
+  td:first-child
+    max-width: 100px
+    word-wrap: break-word
+
 p
   text-align: left
 
