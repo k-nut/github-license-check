@@ -45,4 +45,4 @@ function getAllRepos (userName, page = 1, allRepos = []) {
   })
 }
 
-module.exports = {getAllRepos, getRepos}
+export {getAllRepos, getRepos}
