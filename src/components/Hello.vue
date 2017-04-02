@@ -37,7 +37,12 @@
             <td><a v-bind:href="repo.url">{{ repo.name }}</a> </td>
             <td>{{ repo.fork ? "🍴" : ""}}</td>
             <td>{{ repo.license ? "✅" : "❌" }}</td>
-            <td>{{ repo.license? repo.license.name : "no license" }} </td>
+            <td>
+              <span v-if="repo.license">{{repo.license.name}}</span>
+              <a v-else
+                 v-bind:href="'https://github.com/' + userName + '/' + repo.name  + '/new/master/?filename=LICENSE.txt&value=Copyright%20%3CYEAR%3E%20%3CCOPYRIGHT%20HOLDER%3E%0A%0APermission%20is%20hereby%20granted%2C%20free%20of%20charge%2C%20to%20any%20person%20obtaining%20a%20copy%20of%20this%20software%20and%20associated%20documentation%20files%20(the%20%22Software%22)%2C%20to%20deal%20in%20the%20Software%20without%20restriction%2C%20including%20without%20limitation%20the%20rights%20to%20use%2C%20copy%2C%20modify%2C%20merge%2C%20publish%2C%20distribute%2C%20sublicense%2C%20and%2For%20sell%20copies%20of%20the%20Software%2C%20and%20to%20permit%20persons%20to%20whom%20the%20Software%20is%20furnished%20to%20do%20so%2C%20subject%20to%20the%20following%20conditions%3A%0A%0AThe%20above%20copyright%20notice%20and%20this%20permission%20notice%20shall%20be%20included%20in%20all%20copies%20or%20substantial%20portions%20of%20the%20Software.%0A%0ATHE%20SOFTWARE%20IS%20PROVIDED%20%22AS%20IS%22%2C%20WITHOUT%20WARRANTY%20OF%20ANY%20KIND%2C%20EXPRESS%20OR%20IMPLIED%2C%20INCLUDING%20BUT%20NOT%20LIMITED%20TO%20THE%20WARRANTIES%20OF%20MERCHANTABILITY%2C%20FITNESS%20FOR%20A%20PARTICULAR%20PURPOSE%20AND%20NONINFRINGEMENT.%20IN%20NO%20EVENT%20SHALL%20THE%20AUTHORS%20OR%20COPYRIGHT%20HOLDERS%20BE%20LIABLE%20FOR%20ANY%20CLAIM%2C%20DAMAGES%20OR%20OTHER%20LIABILITY%2C%20WHETHER%20IN%20AN%20ACTION%20OF%20CONTRACT%2C%20TORT%20OR%20OTHERWISE%2C%20ARISING%20FROM%2C%20OUT%20OF%20OR%20IN%20CONNECTION%20WITH%20THE%20SOFTWARE%20OR%20THE%20USE%20OR%20OTHER%20DEALINGS%20IN%20THE%20SOFTWARE.&message=add%20MIT%20License'"
+                 >click to add</a>
+            </td>
           </tr>
         </tbody>
       </table>
