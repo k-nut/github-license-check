@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import {sortBy} from 'lodash'
+import _ from 'lodash'
 
 function status (response) {
   if (response.status >= 200 && response.status < 300) {
@@ -126,7 +126,7 @@ export default {
       return Math.round(ratio * 100)
     },
     sortedRepos () {
-      let sorted = sortBy(this.repos, this.sortBy.key)
+      let sorted = _.sortBy(this.repos, this.sortBy.key)
       if (this.sortBy.reverse) {
         sorted = sorted.reverse()
       }
