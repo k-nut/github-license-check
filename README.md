@@ -1,12 +1,16 @@
-# vue-licensecheck
+# Github license check [![Build Status](https://travis-ci.org/k-nut/github-license-checker.svg?branch=master)](https://travis-ci.org/k-nut/github-license-checker)
 
-> A Vue.js project
+A small single page app that uses GitHub's new [license api](https://developer.github.com/v3/licenses/) to check
+which of your repositories are missing a license.
+
+It is made with vuejs and requires no backend. This has the upside of easier deployment but the problem that it is limited to 
+60 requests per hoour and IP-address because it is using the unauthenticated api.
 
 ## Build Setup
 
 ``` bash
 # install dependencies
-npm install
+yarn install # or npm install
 
 # serve with hot reload at localhost:8080
 npm run dev
@@ -26,5 +30,3 @@ npm run e2e
 # run all tests
 npm test
 ```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
