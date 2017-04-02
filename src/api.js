@@ -1,7 +1,6 @@
 
 function status (response) {
   if (response.status >= 200 && response.status < 300) {
-    console.warn(response)
     return Promise.resolve(response)
   } else {
     return Promise.reject(new Error(response.statusText))
@@ -46,10 +45,4 @@ function getAllRepos (userName, page = 1, allRepos = []) {
   })
 }
 
-function makeRequest () {
-  return fetch('http://httpbin.org/get').then(function (response) {
-    return response.json()
-  })
-}
-
-export {getAllRepos, getRepos, makeRequest}
+module.exports = {getAllRepos, getRepos}
