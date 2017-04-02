@@ -30,3 +30,10 @@ npm run e2e
 # run all tests
 npm test
 ```
+
+## Remarks
+Halfway thought building this I discovered [license-checker](http://dschep.github.io/license-checker/) by dschep which 
+does pretty much the same thing but does not use the new api yet (because it did not exist when he made it).
+
+Using the GitHub license api has the advantage of not having to check for licenses manually and also getting information about the 
+type of the license.
