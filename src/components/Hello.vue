@@ -1,19 +1,12 @@
 <template>
   <div class="content">
-    <h1>License Check</h1>
-    <p> 👋 Hello, we're so glad you stopped by! <br />
+    <h1>License Check </h1>
+    <p> 👋 Hello, we're so glad you stopped by! </p>
+    <p>
       You know that your github repos should have a license so that other people can reuse your code but
-        you want to know where licenses are currently missing? Just enter your name and check!
+        you're not sure if you actually added one for all of your repositories? Just enter your name and check!
     </p>
-    <p>
-      Why is this important? <a href="https://blog.codinghorror.com/pick-a-license-any-license/">Jeff Atwood wrote it down once</a>
-    </p>
-    <p>
-      Don't know which license is the right one for you? Head over to <a href="https://choosealicense.com/">choosealicense.com</a>
-    </p>
-    <p>
-      But for now, just enter your name below and find out how good you are doing!
-    </p>
+
     <form v-on:submit="query" action="">
       <input v-model="userName" placeholder="Your github username" />
       <button type="submit">Check</button>
@@ -46,6 +39,30 @@
           </tr>
         </tbody>
       </table>
+    </div>
+
+    <div class="disclaimer">
+      <hr/>
+
+      <p>
+        Why is this important? <a href="https://blog.codinghorror.com/pick-a-license-any-license/">Jeff Atwood wrote it down once.</a>
+      </p>
+
+      <p>
+        Don't know which license is the right one for you? Head over to <a href="https://choosealicense.com/">choosealicense.com</a>
+      </p>
+
+      <p>
+      We use unauthenticated requests against the GitHub API. This means that you are only allowed to make 60 requests
+      per hour and IP address.
+      </p>
+
+      <p> The actual license checking is done with GitHub's <a href="https://developer.github.com/v3/licenses/">license api</a>
+      so we are only able to tell you about licenses that GitHub understands.</p>
+
+      <p> The source code for this page can be found on <a href="https://github.com/k-nut/github-license-check">GitHub</a>.
+        And yes, it has a <a href="https://github.com/k-nut/github-license-check/blob/master/LICENSE.txt">license</a> 😉
+      </p>
     </div>
 
   </div>
