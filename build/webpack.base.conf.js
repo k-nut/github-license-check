@@ -9,7 +9,7 @@ function resolve (dir) {
 
 module.exports = {
   entry: {
-    app: './src/main.js'
+    app: ['core-js/fn/promise', 'whatwg-fetch', './src/main.js']
   },
   output: {
     path: config.build.assetsRoot,

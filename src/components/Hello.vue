@@ -71,7 +71,8 @@ function getRepos (name, page = 1) {
   const request = new Request(`https://api.github.com/users/${name}/repos?per_page=100&page=${page}`, {
     headers: new Headers({
       'Accept': 'application/vnd.github.drax-preview+json'
-    })
+    }),
+    mode: 'cors'
   })
 
   return fetch(request)
