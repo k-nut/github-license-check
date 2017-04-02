@@ -26,10 +26,10 @@
       <table>
         <thead>
           <tr>
-            <th v-on:click="changeSort('name')">Name</th>
-            <th v-on:click="changeSort('fork')">Fork?</th>
-            <th v-on:click="changeSort('license')">Licensed?</th>
-            <th v-on:click="changeSort('license.name')">License</th>
+            <th v-on:click="changeSort('name')" title="Click to sort by name">Name</th>
+            <th v-on:click="changeSort('fork')" title="Click to sort by fork or not">Fork?</th>
+            <th v-on:click="changeSort('license')" title="Click to sort by license">Licensed?</th>
+            <th v-on:click="changeSort('license.name')" title="Click to sort by license name">License</th>
           </tr>
         </thead>
         <tbody>
@@ -150,6 +150,9 @@ p
 
 h1, h2
   font-weight: normal;
+
+th
+  cursor: pointer
 
 table
   width: 100%
