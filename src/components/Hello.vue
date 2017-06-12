@@ -20,7 +20,7 @@
         <thead>
           <tr>
             <th v-on:click="changeSort('name')" title="Click to sort by name">Name</th>
-            <th v-on:click="changeSort('fork')" title="Click to sort by fork or not">Fork?</th>
+            <th v-on:click="changeSort('fork')" title="Click to sort by fork or not">Fork?<sup>*</sup></th>
             <th v-on:click="changeSort('license')" title="Click to sort by license">Licensed?</th>
             <th v-on:click="changeSort('license.name')" title="Click to sort by license name">License</th>
           </tr>
@@ -39,6 +39,9 @@
           </tr>
         </tbody>
       </table>
+      <div style="text-align: left; margin-top: 1em">
+        <b>*</b> note that GitHub currently has some problems classifying the license for forks so this might not be accurate.
+      </div>
     </div>
 
     <div class="disclaimer">
@@ -163,5 +166,5 @@ button, input
   font-size: 1.6em
 
 .disclaimer
-  margin-top: 6rem
+  margin-top: 5rem
 </style>
