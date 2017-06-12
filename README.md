@@ -1,4 +1,4 @@
-# Github license check [![Build Status](https://travis-ci.org/k-nut/github-license-check.svg?branch=master)](https://travis-ci.org/k-nut/github-license-check)
+# GitHub license check [![Build Status](https://travis-ci.org/k-nut/github-license-check.svg?branch=master)](https://travis-ci.org/k-nut/github-license-check)
 
 A small single page app that uses GitHub's new [license api](https://developer.github.com/v3/licenses/) to check
 which of your repositories are missing a license.

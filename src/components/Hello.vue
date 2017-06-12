@@ -3,7 +3,7 @@
     <h1>License Check </h1>
     <p> 👋 Hello, we're so glad you stopped by! </p>
     <p>
-      You know that your github repos should have a license so that other people can reuse your code but
+      You know that your GitHub repos should have a license so that other people can reuse your code but
         you're not sure if you actually added one for all of your repositories? Just enter your name and check!
     </p>
 
