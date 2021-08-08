@@ -1,4 +1,3 @@
-
 function status (response) {
   if (response.status >= 200 && response.status < 300) {
     return Promise.resolve(response)
@@ -13,19 +12,20 @@ function json (response) {
 
 function extractData (repos) {
   return repos.map(function (r) {
-    return { name: r.name, license: r.license, fork: r.fork, url: r.html_url }
+    return {name: r.name, license: r.license, fork: r.fork, url: r.html_url}
   })
 }
 
 function getRepos (name, page = 1) {
-  const request = new Request(`https://api.github.com/users/${name}/repos?per_page=100&page=${page}`, {
-    headers: new Headers({
+  const url = `https://api.github.com/users/${name}/repos?per_page=100&page=${page}`
+  const options = {
+    headers: {
       'Accept': 'application/vnd.github.drax-preview+json'
-    }),
+    },
     mode: 'cors'
-  })
+  }
 
-  return fetch(request)
+  return fetch(url, options)
     .then(status)
     .then(json)
     .then(extractData)
