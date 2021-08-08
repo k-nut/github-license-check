@@ -1,29 +1,7 @@
-// import Vue from 'vue'
-import { getRepos } from '@/api'
-import 'whatwg-fetch/fetch.js'
-import fetchMock from 'fetch-mock'
-fetchMock.setImplementations({Promise: require('es6-promise').Promise})
-
-// describe('Hello.vue', () => {
-//   it('should render correct contents', () => {
-//     const Constructor = Vue.extend(Hello)
-//     const vm = new Constructor().$mount()
-//     expect(vm.$el.querySelector('.content h1').textContent)
-//       .to.equal('License Check')
-//   })
-// })
+import {getRepos} from './api'
 
 describe('API', () => {
-  // let sandbox
-  // beforeEach(() => {
-  //   sandbox = sinon.sandbox.create()
-  // })
-  // afterEach(() => {
-  //   sandbox.restore()
-  //   fetchMock.restore()
-  // })
-
-  it('getRepos should convert github response', () => {
+  it('getRepos should convert github response', async () => {
     const mockResponse = [
       {
         'id': 26601161,
@@ -116,16 +94,24 @@ describe('API', () => {
         'license': null
       }]
 
-    fetchMock.mock('https://api.github.com/users/testuser/repos?per_page=100&page=1', mockResponse)
-    return getRepos('testuser').then(result => {
-      console.log(result)
-      return result.should.deep.equal([{
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        status: 200,
+        json: () => Promise.resolve(mockResponse)
+      })
+    )
+
+    const response = await getRepos('testUser')
+    expect(response).toEqual(
+      [{
         name: 'agents',
         license: null,
         url: 'https://github.com/k-nut/agents',
         fork: false
       }])
-    }
-    )
+    expect(global.fetch).toHaveBeenCalledWith('https://api.github.com/users/testUser/repos?per_page=100&page=1', {
+      'headers': {'Accept': 'application/vnd.github.drax-preview+json'},
+      'mode': 'cors'
+    })
   })
 })

@@ -26,7 +26,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="repo in sortedRepos">
+          <tr v-for="repo in sortedRepos" v-bind:key="repo.url">
             <td><a v-bind:href="repo.url">{{ repo.name }}</a> </td>
             <td>{{ repo.fork ? "🍴" : ""}}</td>
             <td>{{ repo.license ? "✅" : "❌" }}</td>
@@ -134,7 +134,7 @@ p
   text-align: left
 
 h1, h2
-  font-weight: normal;
+  font-weight: normal
 
 th
   cursor: pointer
@@ -145,10 +145,10 @@ th
 
 table
   width: 100%
-  margin: 0 auto;
+  margin: 0 auto
 
   td:first-child, th:first-child
-    text-align: left;
+    text-align: left
     a
       text-decoration: none
       color: #2c3e50
