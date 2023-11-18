@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <hello></hello>
+    <license-check />
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
+import LicenseCheck from './components/LicenseCheck.vue'
 
 export default {
   name: 'app',
   components: {
-    Hello
+    LicenseCheck
   }
 }
 </script>
