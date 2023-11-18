@@ -1,26 +1,27 @@
 {
   "name": "vue-licensecheck",
   "version": "1.0.0",
+  "private": true,
   "description": "A Vue.js project",
   "author": "Knut Hühne <knut@k-nut.eu>",
-  "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test": "jest",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "test": "jest"
   },
   "dependencies": {
     "core-js": "^3.6.5",
     "vue": "^2.6.11"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.2.2",
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.12.16",
+    "@vue/cli-plugin-babel": "~5.0.8",
+    "@vue/cli-plugin-eslint": "~5.0.8",
+    "@vue/cli-service": "~5.0.8",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^8.0.3",
     "jest": "^27.0.6",
     "sass": "^1.37.5",
     "sass-loader": "^10",
@@ -36,7 +37,7 @@
       "eslint:recommended"
     ],
     "parserOptions": {
-      "parser": "babel-eslint"
+      "parser": "@babel/eslint-parser"
     },
     "rules": {}
   },
