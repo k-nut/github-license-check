@@ -118,53 +118,69 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="sass" scoped>
-@media (min-width: 700px)
-  .content
-    width: 700px
-    margin: 0 auto
+<style scoped>
+@media (min-width: 700px) {
+.content {
+  width: 700px;
+  margin: 0 auto;
+}
+}
 
-@media (max-width: 700px)
-  td:first-child
-    max-width: 100px
-    word-wrap: break-word
+@media (max-width: 700px) {
+td:first-child {
+  max-width: 100px;
+  word-wrap: break-word;
+}
+}
 
-p
-  text-align: left
+p {
+  text-align: left;
+}
 
-h1, h2
-  font-weight: normal
+h1, h2 {
+  font-weight: normal;
+}
 
-th
-  cursor: pointer
+.statistics {
+  margin: 1rem 0;
+  text-align: left;
+}
 
-.statistics
-  margin: 1rem 0
-  text-align: left
+table {
+  width: 100%;
+  margin: 0 auto;
+}
 
-table
-  width: 100%
-  margin: 0 auto
+table td:first-child, table th:first-child {
+  text-align: left;
+}
 
-  td:first-child, th:first-child
-    text-align: left
-    a
-      text-decoration: none
-      color: #2c3e50
+table td:first-child a {
+  text-decoration: none;
+  color: #2c3e50;
+}
 
-  td:last-child, th:last-child
-    text-align: right
+th {
+  cursor: pointer;
+}
 
-  tr:nth-child(even)
-    background: rgba(228, 228, 228, 0.54)
+table td:last-child, table th:last-child {
+  text-align: right;
+}
 
-table, tr, td
-  border-collapse: collapse
+table tr:nth-child(even) {
+  background: rgba(228, 228, 228, 0.54);
+}
 
-button, input
-  font-size: 1.6em
+table, tr, td {
+  border-collapse: collapse;
+}
 
-.disclaimer
-  margin-top: 5rem
+button, input {
+  font-size: 1.6em;
+}
+
+.disclaimer {
+  margin-top: 5rem;
+}
 </style>
