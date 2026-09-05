@@ -1,6 +1,22 @@
 import { LitElement, html, css } from 'lit'
-import _ from 'lodash'
 import { getAllRepos } from '../api.js'
+
+
+const byName = (a, b) => {
+  return a.name.localeCompare(b.name);
+}
+
+const byFork = (a,b) => {
+  return a.fork ? -1 : 1;
+}
+
+const byHasLicense = (a,b) => {
+  return a.license ? -1 : 1;
+}
+
+const byLicense = (a,b) => {
+  return (a.license?.name ?? "").localeCompare(b.license?.name ?? "");
+}
 
 export class LicenseCheck extends LitElement {
   static get properties () {
@@ -84,7 +100,7 @@ export class LicenseCheck extends LitElement {
     super()
     this.repos = []
     this.userName = ''
-    this.sortBy = { key: 'name', reverse: false }
+    this.sortBy = { function: byName, reverse: false }
   }
 
   query (event) {
@@ -94,12 +110,12 @@ export class LicenseCheck extends LitElement {
     })
   }
 
-  changeSort (name) {
+  changeSort (func) {
     let reverse = false
-    if (this.sortBy.key === name) {
+    if (this.sortBy.function === func) {
       reverse = !this.sortBy.reverse
     }
-    this.sortBy = { key: name, reverse }
+    this.sortBy = { function: func, reverse }
   }
 
   get licensedCount () {
@@ -115,9 +131,9 @@ export class LicenseCheck extends LitElement {
   }
 
   get sortedRepos () {
-    let sorted = _.sortBy(this.repos, this.sortBy.key)
-    if (this.sortBy.reverse) {
-      sorted = sorted.reverse()
+    const sorted = this.repos.toSorted(this.sortBy.function)
+    if (this.sortBy.reverse){
+      return sorted.reverse()
     }
     return sorted
   }
@@ -153,10 +169,10 @@ export class LicenseCheck extends LitElement {
           <table>
             <thead>
               <tr>
-                <th @click=${() => this.changeSort('name')} title="Click to sort by name">Name</th>
-                <th @click=${() => this.changeSort('fork')} title="Click to sort by fork or not">Fork?<sup>*</sup></th>
-                <th @click=${() => this.changeSort('license')} title="Click to sort by license">Licensed?</th>
-                <th @click=${() => this.changeSort('license.name')} title="Click to sort by license name">License</th>
+                <th @click=${() => this.changeSort(byName)} title="Click to sort by name">Name</th>
+                <th @click=${() => this.changeSort(byFork)} title="Click to sort by fork or not">Fork?<sup>*</sup></th>
+                <th @click=${() => this.changeSort(byHasLicense)} title="Click to sort by license">Licensed?</th>
+                <th @click=${() => this.changeSort(byLicense)} title="Click to sort by license name">License</th>
               </tr>
             </thead>
             <tbody>
